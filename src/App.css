@@ -1,0 +1,113 @@
+.App{
+  margin-left: 15%;
+  margin-right: 15%;  
+}
+
+.calendar-container,
+.calendar,
+.calendar-header,
+td,
+tr {
+  font-weight: bold;
+}
+
+.calendar, .day, a{
+  color:black;
+}
+
+.calendar, .friday a{
+  color: blue;
+}
+
+.calendar-header label {
+  color: #6699cc;
+}
+
+.calendar-container .calendar tbody .week-day{
+  background-color: #cccccc;
+  color: cornsilk;
+}
+
+.calendar-container{
+  padding: 6px;
+  margin: 3px;
+  font-size: 10px;
+}
+
+.calendar {
+  background-color: white;
+  border-spacing: 0;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.calendar-header {
+  font-size: 1.5em;
+}
+
+
+
+.calendar-header td{
+  border-spacing: 0;
+}
+
+
+
+.current-day{
+  background-color: blue;
+  width: 5px;
+  height: 5px;
+  line-height: 5px;
+  border-radius: 2%;
+  color: white;
+}
+
+
+
+.month-popup {
+  position: absolute;
+  padding: 2px;
+  background: white;
+  border: 2px solid skyblue;
+}
+
+.month-popup div {
+  padding: 0.3em;
+}
+
+.day{
+  width: 5px;
+  height: 5px;
+  line-height: 5px;
+  border-radius: 2%;
+}
+
+.day,
+.empty-slot,
+.week-day{
+  text-align: center;
+  font-size: 10px;
+  font-family: Verdana;
+}
+
+
+.nav-month {
+  position: absolute;
+  top: 0.6em;
+  font-size: 0.6em;
+  right: 3px;
+}
+
+
+.editor-year {
+  max-width: 3.6em;;
+}
+
+.label-month,
+.label-year {
+  font-size: 0.6em;
+}
+
+.label-month{
+  cursor: pointer;
+}

@@ -1,0 +1,47 @@
+.contentor-category{
+    margin: 10px;
+}
+
+.none,
+.holiday,
+.busy,
+.birthday,
+.anniversary {
+    border: 0px;
+    cursor: pointer;
+}
+
+.holiday,
+.busy,
+.birthday,
+.anniversary {
+    border-radius: 1px;
+    padding: 2px;
+    width: 100%;
+}
+
+.none{
+    background-color: initial;
+}
+
+.holiday{
+    background-color: fuchsia;
+}
+
+.busy{
+    background-color: greenyellow;
+}
+
+.anniversary{
+    background-color: rgb(197, 171, 26);
+}
+
+.birthday{
+    background-color: rgb(63, 184, 164);
+}
+
+.actualCategory{
+    font-style: italic;
+    color: #11088f;
+    font-weight: bolder;
+}
