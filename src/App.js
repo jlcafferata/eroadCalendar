@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import moment from 'moment';
-import YearSelector from './components/YearSelector';
+import YearSelector from './components/YearSelector/';
 import Calendar from './components/Calendar/';
 import CategorySelect from './components/CategorySelect/';
-import './bootstrap-3.3.7-dist/css/bootstrap.min.css';
+import Summary from './components/Summary/';
+import './App.css';
 
 class App extends Component {
   
@@ -27,61 +28,79 @@ class App extends Component {
     });
   }
 
+  refresh = () =>{
+    this.setState({
+      showModal: false
+    });
+  }
+
   render() {
     return (
       <div className="App">
-        <div className="row">
-          <div className="col-md-12">
-                <YearSelector onSelectYear={this.handleSelectedYear} currentYear={this.state.currentYear}></YearSelector>
+        <div className="panel panel-default">
+          <div className="panel-heading">
+            <div className="row">
+              <div className="col-md-2">
+                    <label className="label-year">Select year</label>
+              </div>
+              <div className="col-md-4">
+                    <YearSelector onSelectYear={this.handleSelectedYear} currentYear={this.state.currentYear}></YearSelector>
+              </div>
+              <div className="col-md-6">
+                <Summary year={this.state.currentYear}></Summary>
+              </div>
+            </div>  
           </div>
+          <div className="panel-body">
+            <div className="row">
+              <div className="col-md-4">
+                  <Calendar yearSelected={this.state.currentYear} monthSelected='00' openChangeCategory={this.openCategory}></Calendar> 
+              </div>
+              <div className="col-md-4">
+                    <Calendar yearSelected={this.state.currentYear} monthSelected='01' openChangeCategory={this.openCategory}></Calendar> 
+              </div>
+              <div className="col-md-4">
+                    <Calendar yearSelected={this.state.currentYear} monthSelected='02' openChangeCategory={this.openCategory}></Calendar> 
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-md-4">
+                    <Calendar yearSelected={this.state.currentYear} monthSelected='03' openChangeCategory={this.openCategory}></Calendar> 
+              </div>
+              <div className="col-md-4">
+                    <Calendar yearSelected={this.state.currentYear} monthSelected='04' openChangeCategory={this.openCategory}></Calendar> 
+              </div>
+              <div className="col-md-4">
+                    <Calendar yearSelected={this.state.currentYear} monthSelected='05' openChangeCategory={this.openCategory}></Calendar> 
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-md-4">
+                    <Calendar yearSelected={this.state.currentYear} monthSelected='06' openChangeCategory={this.openCategory}></Calendar> 
+              </div>
+              <div className="col-md-4">
+                    <Calendar yearSelected={this.state.currentYear} monthSelected='07' openChangeCategory={this.openCategory}></Calendar> 
+              </div>
+              <div className="col-md-4">
+                    <Calendar yearSelected={this.state.currentYear} monthSelected='08' openChangeCategory={this.openCategory}></Calendar> 
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-md-4">
+                    <Calendar yearSelected={this.state.currentYear} monthSelected='09' openChangeCategory={this.openCategory}></Calendar> 
+              </div>
+              <div className="col-md-4">
+                    <Calendar yearSelected={this.state.currentYear} monthSelected='10' openChangeCategory={this.openCategory}></Calendar> 
+              </div>
+              <div className="col-md-4">
+                    <Calendar yearSelected={this.state.currentYear} monthSelected='11' openChangeCategory={this.openCategory}></Calendar> 
+              </div>
+            </div>
+            </div>  
         </div>
         <div className="row">
           <div className="col-md-4">
-              <Calendar yearSelected={this.state.currentYear} monthSelected='00' openChangeCategory={this.openCategory}></Calendar> 
-          </div>
-          <div className="col-md-4">
-                <Calendar yearSelected={this.state.currentYear} monthSelected='01' openChangeCategory={this.openCategory}></Calendar> 
-          </div>
-          <div className="col-md-4">
-                <Calendar yearSelected={this.state.currentYear} monthSelected='02' openChangeCategory={this.openCategory}></Calendar> 
-          </div>
-        </div>
-        <div className="row">
-          <div className="col-md-4">
-                <Calendar yearSelected={this.state.currentYear} monthSelected='03' openChangeCategory={this.openCategory}></Calendar> 
-          </div>
-          <div className="col-md-4">
-                <Calendar yearSelected={this.state.currentYear} monthSelected='04' openChangeCategory={this.openCategory}></Calendar> 
-          </div>
-          <div className="col-md-4">
-                <Calendar yearSelected={this.state.currentYear} monthSelected='05' openChangeCategory={this.openCategory}></Calendar> 
-          </div>
-        </div>
-        <div className="row">
-          <div className="col-md-4">
-                <Calendar yearSelected={this.state.currentYear} monthSelected='06' openChangeCategory={this.openCategory}></Calendar> 
-          </div>
-          <div className="col-md-4">
-                <Calendar yearSelected={this.state.currentYear} monthSelected='07' openChangeCategory={this.openCategory}></Calendar> 
-          </div>
-          <div className="col-md-4">
-                <Calendar yearSelected={this.state.currentYear} monthSelected='08' openChangeCategory={this.openCategory}></Calendar> 
-          </div>
-        </div>
-        <div className="row">
-          <div className="col-md-4">
-                <Calendar yearSelected={this.state.currentYear} monthSelected='09' openChangeCategory={this.openCategory}></Calendar> 
-          </div>
-          <div className="col-md-4">
-                <Calendar yearSelected={this.state.currentYear} monthSelected='10' openChangeCategory={this.openCategory}></Calendar> 
-          </div>
-          <div className="col-md-4">
-                <Calendar yearSelected={this.state.currentYear} monthSelected='11' openChangeCategory={this.openCategory}></Calendar> 
-          </div>
-        </div>
-        <div className="row">
-          <div className="col-md-4">
-            <CategorySelect currentDay={this.state.currentDay} currentKey={this.state.currentKey} showModal={this.state.showModal}></CategorySelect>
+            <CategorySelect currentDay={this.state.currentDay} currentKey={this.state.currentKey} showModal={this.state.showModal} onUpdate={this.refresh}></CategorySelect>
           </div>
         </div>
       </div>

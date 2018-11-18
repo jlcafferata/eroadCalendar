@@ -7,7 +7,7 @@ const YearSelector = ({onSelectYear, currentYear}) =>{
     }
 
     return (
-        <input type="number" step="1" min="2018" onChange={selectYear} value={currentYear}/> 
+        <input type="number" className="btn btn-default btn-xs" step="1" min="2018" onChange={selectYear} value={currentYear}/> 
     )
 }
 

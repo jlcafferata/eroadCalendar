@@ -8,16 +8,17 @@ class CategorySelect extends Component {
         super(props, context);
 
         this.state = {
-            showModal: props.showModal||false,
-            currentDay: props.currentDay||'',
-            currentMonth:props.currentMonth||'',
-            currentCategory:props.currentCategory||'none',
-            categorySelected:'none'
+            showModal:          props.showModal || false,
+            currentDay:         props.currentDay || '',
+            currentMonth:       props.currentMonth || '',
+            currentCategory:    props.currentCategory || 'none',
+            categorySelected:   'none'
         }
         this.open = this.open.bind(this);
         this.close = this.close.bind(this);
         this.handleOptionChange = this.handleOptionChange.bind(this);
         this.save = this.save.bind(this);
+        this.onUpdate=this.props.onUpdate.bind(this);
     }
 
     open = () => {
@@ -25,14 +26,14 @@ class CategorySelect extends Component {
     }
 
     close = () => {
-    this.setState({showModal: false});
+        this.onUpdate();
     }
 
     save = () => {
         let calendar_found=storage.get(this.state.currentKey);
         if(calendar_found){
             if(!this.state.categorySelected){
-            alert('No selecciono ninguna categoria nueva'); 
+                alert('No selecciono ninguna categoria nueva'); 
             } else{
                 let days=calendar_found.calendar[0].days;
                 
@@ -53,11 +54,6 @@ class CategorySelect extends Component {
         }
     }
 
-
-    capitalizeFirstLetter = () => {
-        return this.state.currentCategory.charAt(0).toUpperCase() + this.state.currentCategory.slice(1);
-    }
-
     componentWillReceiveProps = (next_props) =>{
         const {currentKey, currentDay, showModal}=next_props;
         const calendar_found=storage.get(currentKey);
@@ -74,7 +70,8 @@ class CategorySelect extends Component {
             showModal: showModal,
             currentCategory: currentCategory,
             currentKey: currentKey,
-            currentDay: currentDay
+            currentDay: currentDay,
+            categorySelected: ''
         });    
     }
       
@@ -98,6 +95,17 @@ class CategorySelect extends Component {
                 </Modal.Header>
 
                 <Modal.Body>
+                    <div className="row"> 
+                        <div className="col-md-12 radio none">
+                            <label className={this.state.currentCategory === 'none'?'actualCategory':''}>
+                                <input type="radio" value="none" 
+                                            checked={this.state.currentCategory === 'none' ||
+                                                    this.state.categorySelected === 'none'} 
+                                            onChange={this.handleOptionChange} />
+                                Blank
+                            </label>
+                        </div>
+                    </div>
                     <div className="row">
                         <div className="col-md-12 radio holiday">
                             <label className={this.state.currentCategory === 'holiday'?'actualCategory':''}>

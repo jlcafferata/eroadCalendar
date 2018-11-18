@@ -1,7 +1,23 @@
 .App{
-  margin-left: 15%;
-  margin-right: 15%;  
+  position: relative;
+  margin: 2px 15% 2px 15%;
+  border-color: #e5e5e5 #eee #eee;
+  /*border-style: solid;
+  border-width: 1px 0;
+  box-shadow: inset 4px 9px 43px rgba(0,0,0,0.05);
+  border-radius: 38px;
+  */padding: 1% 4% 1% 4%;
 }
+
+.App, .panel-body{
+  padding: 0px;
+}
+
+.label-year{
+  font-size: 17px;
+  color: #6699cc;
+}
+
 
 .calendar-container,
 .calendar,
@@ -19,7 +35,7 @@ tr {
   color: blue;
 }
 
-.calendar-header label {
+.calendar-header label {  
   color: #6699cc;
 }
 
@@ -31,7 +47,10 @@ tr {
 .calendar-container{
   padding: 6px;
   margin: 3px;
-  font-size: 10px;
+  font-size: 9px;
+  border: solid 1px #e7e7e6;
+  border-radius: 10px;
+  height: 140px;
 }
 
 .calendar {
@@ -84,7 +103,8 @@ tr {
 
 .day,
 .empty-slot,
-.week-day{
+.week-day,
+.friday{
   text-align: center;
   font-size: 10px;
   font-family: Verdana;
@@ -103,11 +123,79 @@ tr {
   max-width: 3.6em;;
 }
 
-.label-month,
-.label-year {
+.label-month {
   font-size: 0.6em;
 }
 
 .label-month{
   cursor: pointer;
+}
+
+.contentor-category{
+  margin: 10px;
+}
+
+.none,
+.holiday,
+.busy,
+.birthday,
+.anniversary {
+  border: 0px;
+  cursor: pointer;
+}
+
+.holiday,
+.busy,
+.birthday,
+.anniversary {
+  border-radius: 1px;
+  padding: 5px;
+  width: 100%;
+}
+
+.none{
+  background-color: initial;
+}
+
+
+.holiday{
+  background-color: fuchsia;
+}
+
+.busy{
+  background-color: greenyellow;
+}
+
+.anniversary{
+  background-color: rgb(197, 171, 26);
+}
+
+.birthday{
+  background-color: rgb(63, 184, 164);
+}
+
+.info-button  {
+  margin-right: 4px;
+}
+
+.holiday-button{
+  background-color: fuchsia;
+}
+
+.busy-button{
+  background-color: greenyellow;
+}
+
+.anniversary-button{
+  background-color: rgb(197, 171, 26);
+}
+
+.birthday-button{
+  background-color: rgb(63, 184, 164);
+}
+
+.actualCategory{
+  font-style: italic;
+  color: #11088f;
+  font-weight: bolder;
 }

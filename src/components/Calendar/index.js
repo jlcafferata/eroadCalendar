@@ -2,15 +2,11 @@ import React from 'react';
 import moment from 'moment';
 import storage from './../../libs/storage';
 
-import './index.css';
-import './../CategorySelect/event.css';
-
 const Calendar = ({yearSelected, monthSelected, openChangeCategory})=>{
     
     let currentYear=moment().format('YYYY');
     let currentMonth=moment().format('MM');
     let currentDay=parseInt(moment().format('D'));
-    //let currentCategory = 'none';
     let dateContext = moment(new Date(yearSelected, monthSelected));
     let largeMonthSelected = dateContext.format('MMMM');
 
@@ -52,27 +48,23 @@ const Calendar = ({yearSelected, monthSelected, openChangeCategory})=>{
             }
 
             let newValue=
-                {"key": key,
-                 "calendar": [
+                {"calendar": [
                     {"month":   monthSelected,
                      "firstDayOfMonth":  firstDayOfMonth(),
                      "days":    days
                     }
                 ]};
             storage.set(key, newValue);
-            /*[{"year":"2018", 
-                "calendar":
-                    [
-                        {"month":"january", "firstDayOfMonth":0, "days":[{"day":1, "category":"none"}]}
-                    ]
-                }                
-             ]*/
-             calendar_found=storage.get(key);
+            calendar_found=storage.get(key);
         }
 
         if(calendar_found){
            return drawCalendar(calendar_found);
         }
+    }
+
+    let capitalizeFirstLetter = category => {
+        return ((category!=='none')?category.charAt(0).toUpperCase() + category.slice(1):'');
     }
 
     let drawCalendar = (model) => {
@@ -95,7 +87,7 @@ const Calendar = ({yearSelected, monthSelected, openChangeCategory})=>{
                              (is_friday? 'friday' : 'day'));
                 no_blanks.push(
                     <td key={day} className={className}>
-                        <span><button onClick={viewChangeCategory} id={day} className={category}>{day}</button></span>                     
+                        <span><button onClick={viewChangeCategory} id={day} className={category} title={capitalizeFirstLetter(category)}>{day}</button></span>                     
                     </td>
                 );   
             }
