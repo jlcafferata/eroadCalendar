@@ -8,11 +8,11 @@ class CategorySelect extends Component {
         super(props, context);
 
         this.state = {
-            showModal:          props.showModal || false,
-            currentDay:         props.currentDay || '',
-            currentMonth:       props.currentMonth || '',
-            currentCategory:    props.currentCategory || 'none',
-            categorySelected:   'none'
+            showModal: props.showModal || false,
+            currentDay: props.currentDay || '',
+            currentMonth: props.currentMonth || '',
+            currentCategory: props.currentCategory || 'none',
+            categorySelected: 'none'
         }
         this.open = this.open.bind(this);
         this.close = this.close.bind(this);
@@ -36,19 +36,17 @@ class CategorySelect extends Component {
                 alert('No selecciono ninguna categoria nueva'); 
             } else{
                 let days=calendar_found.calendar[0].days;
-                
                 days[parseInt(this.state.currentDay)-1].category=this.state.categorySelected;                
                 
                 let newValue=
-                    {"key": calendar_found.key,
-                    "calendar": [
+                    {"calendar": [
                         {"month":              calendar_found.calendar[0].month,
                         "firstDayOfMonth":     calendar_found.calendar[0].firstDayOfMonth,
-                        "days":                days
+                        days
                         }
                     ]};
                 
-                storage.set(calendar_found.key, newValue);
+                storage.set(this.state.currentKey, newValue);
                 this.close();
             }
         }
@@ -67,10 +65,10 @@ class CategorySelect extends Component {
             }
         }
         this.setState({
-            showModal: showModal,
-            currentCategory: currentCategory,
-            currentKey: currentKey,
-            currentDay: currentDay,
+            showModal,
+            currentCategory,
+            currentKey,
+            currentDay,
             categorySelected: ''
         });    
     }
