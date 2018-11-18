@@ -2,11 +2,7 @@
   position: relative;
   margin: 2px 15% 2px 15%;
   border-color: #e5e5e5 #eee #eee;
-  /*border-style: solid;
-  border-width: 1px 0;
-  box-shadow: inset 4px 9px 43px rgba(0,0,0,0.05);
-  border-radius: 38px;
-  */padding: 1% 4% 1% 4%;
+  padding: 1% 4% 1% 4%;
 }
 
 .App, .panel-body{
@@ -45,12 +41,12 @@ tr {
 }
 
 .calendar-container{
-  padding: 6px;
-  margin: 3px;
+  padding: 4px;
+  margin: 2px;
   font-size: 9px;
   border: solid 1px #e7e7e6;
   border-radius: 10px;
-  height: 140px;
+  height: 144px;
 }
 
 .calendar {
@@ -64,13 +60,10 @@ tr {
   font-size: 1.5em;
 }
 
-
-
 .calendar-header td{
   border-spacing: 0;
+  line-height: 6.8pt;
 }
-
-
 
 .current-day{
   background-color: blue;
@@ -80,8 +73,6 @@ tr {
   border-radius: 2%;
   color: white;
 }
-
-
 
 .month-popup {
   position: absolute;
